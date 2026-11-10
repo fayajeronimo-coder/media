@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>FridgeChef · Qué cocinar con lo que tienes en casa</title>
 <meta name="description" content="Marca lo que tienes en la nevera y te decimos qué cocinar hoy. Menú de la semana y lista de la compra automática para gastar menos y no tirar comida.">
-<meta name="theme-color" content="#F1F6F2">
+<meta name="theme-color" content="#F6F3EB">
 <meta property="og:title" content="FridgeChef · ¿Qué cocino hoy?">
 <meta property="og:description" content="Recetas con lo que ya tienes, menú semanal y lista de la compra en segundos.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232E6B3F'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle'%3E🍳%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233B4A2C'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle'%3E🍳%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F1F6F2;--surface:#FFFFFF;--soft:#E4EEE6;--ink:#16301E;--ink2:#2D4A36;--mute:#5B6B5F;--line:#D7E3DA;--basil:#2E6B3F;--basil-d:#24563A;--butter:#F2C94C;--butter-s:#FCF3D6;--warn:#A4502A;--head:"Bricolage Grotesque",system-ui,sans-serif;--sans:"Bricolage Grotesque",system-ui,sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -103,6 +103,35 @@ footer{border-top:1px solid var(--line);padding:24px 0 70px;color:var(--mute);fo
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 @media (max-width:820px){.grid{grid-template-columns:1fr 1fr}.plans,.how{grid-template-columns:1fr}.acct form{grid-template-columns:1fr}}
 @media (max-width:480px){.grid{grid-template-columns:1fr}.card{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:start}.card .em{grid-row:span 4;font-size:32px;margin-top:2px}.card h3{margin-top:0}}
+
+/* premium layer */
+:root{--bg:#F6F3EB;--surface:#FFFDF8;--soft:#ECE8DC;--ink:#26301F;--ink2:#46503E;--mute:#6C6A5E;--line:#E2DDCF;--basil:#3B4A2C;--basil-d:#2C3821;--butter:#D9B25B;--butter-s:#F4EAD0;--warn:#A2492E;--head:"Young Serif",Georgia,serif;--sans:Geist,system-ui,sans-serif;--shadow:0 1px 2px rgba(38,48,31,.05),0 18px 40px -18px rgba(38,48,31,.22)}
+body{font-family:var(--sans);letter-spacing:-.005em}
+h1{font:400 clamp(46px,8.5vw,84px)/.95 var(--head);letter-spacing:-.02em}
+.panel h2,section h2.t,.mh h3,.plan .p,.day b{font-family:var(--head);font-weight:400;letter-spacing:-.01em}
+.logo{font:400 22px var(--head);letter-spacing:-.01em}.logo i{background:var(--basil);border-radius:50%}
+.btn{border-radius:999px;font-weight:600}.btn.sm{border-radius:999px}
+.badge{border-radius:999px;background:transparent;border:1px solid var(--line)}.badge.pro{border-color:var(--butter);color:var(--basil-d);background:transparent}
+.panel{border-radius:28px;box-shadow:var(--shadow);padding:22px}
+.quick button{border-radius:999px;border:1px solid var(--basil);background:transparent;font-weight:600}
+.quick button.on{background:var(--butter);border-color:var(--butter)}
+.search input{border-radius:999px;padding:12px 18px;background:var(--bg)}
+.cat{font-family:var(--head);font-weight:400;font-size:17px;color:var(--ink)}
+.chip{border-radius:999px;padding:8px 14px;background:var(--surface);font-weight:500}
+.chip.on{background:var(--basil);border-color:var(--basil)}
+.chip.first{background:var(--butter);border-color:var(--butter)}
+.selbar{border-radius:999px;padding:8px 8px 8px 22px;background:var(--ink)}
+.selbar .btn{background:var(--butter);color:var(--ink)}
+.tab{border-radius:999px}
+.card{border-radius:22px;box-shadow:var(--shadow);border-color:var(--line)}
+.card h3{font-family:var(--head);font-weight:400;font-size:20px;letter-spacing:-.01em}
+.bar i{background:var(--basil)}
+.day,.shop,.plan,.acct{border-radius:22px;box-shadow:var(--shadow)}
+.plan.hl{border:1px solid var(--butter);box-shadow:0 0 0 3px rgba(217,178,91,.18),var(--shadow)}
+.plan .p{font-size:48px}
+.how b{background:transparent;border:1px solid var(--basil);color:var(--basil)}
+dialog{border-radius:28px}
+.toast{border-radius:999px}
 </style>
 </head>
 <body>
@@ -182,7 +211,7 @@ const save=()=>{store.set('fc_have',[...have]);store.set('fc_first',[...first])}
 /* picker */
 function drawChips(){const q=$('q').value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');const byCat={};Object.entries(ING).forEach(([id,[l,c,e]])=>{const n=l.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(q&&!n.includes(q))return;(byCat[c]=byCat[c]||[]).push([id,l,e])});
  const order=['Verduras y fruta','Carne y pescado','Lácteos y huevos','Despensa'];$('cats').innerHTML=order.filter(c=>byCat[c]).map(c=>`<div class="cat">${c}</div><div class="chips">${byCat[c].map(([id,l,e])=>`<button class="chip ${have.has(id)?'on':''} ${first.has(id)?'first':''}" data-i="${id}">${e} ${l}${first.has(id)?' (caduca)':''}</button>`).join('')}</div>`).join('')||'<p class="hint">No encontramos ese ingrediente.</p>';
- const n=have.size?R.filter(r=>r.ing.some(i=>have.has(i))).length:0;const all=R.filter(r=>r.ing.every(i=>have.has(i))).length;$('selN').textContent=have.size?`${have.size} ingrediente${have.size===1?'':'s'}`+(all?`, ${all} sin comprar nada`:''):'Marca al menos un ingrediente';$('go').textContent=n?`Ver ${n} recetas`:'Ver recetas'}
+ const n=have.size?R.filter(r=>r.ing.some(i=>have.has(i))).length:0;const all=R.filter(r=>r.ing.every(i=>have.has(i))).length;$('selN').innerHTML=have.size?`${have.size} marcado${have.size===1?'':'s'}`+(all?`<br><small style="opacity:.75">${all} sin comprar nada</small>`:''):'Marca al menos un ingrediente';$('go').textContent=n?`Ver ${n} recetas`:'Ver recetas'}
 let firstMode=false;
 $('cats').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;const i=c.dataset.i;if(firstMode){toggleFirst(i);return}if(have.has(i)){have.delete(i);first.delete(i)}else have.add(i);save();drawChips();if(isOpen())render()});
 $('qBasic').onclick=()=>{['huevo','arroz','pasta','cebolla','ajo','patata','triturado','harina','leche'].forEach(i=>have.add(i));save();drawChips();if(isOpen())render();toast('Añadidos los básicos. Quita lo que no tengas.');track('quick_basics')};
